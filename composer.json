@@ -1,20 +1,27 @@
 {
-    "name": "chuong/plagscan",
-    "description": "Plagiarism checker",
-    "type": "library",
-    "require": {
-        "guzzlehttp/guzzle": "^6.5"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "chuong",
-            "email": "dangchuongqn91@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Plagiarism\\Plagscan\\": "src/"
-        }
-    }
+	"name": "chuong/plagscan",
+	"description": "Plagiarism checker",
+	"type": "library",
+	"require": {
+		"guzzlehttp/guzzle": "^6.5"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "chuong",
+			"email": "dangchuongqn91@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Plagiarism\\Plagscan\\": "src/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Plagiarism\\Plagscan\\PlagiarismProvider"
+			]
+		}
+	}
 }
