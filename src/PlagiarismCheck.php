@@ -5,6 +5,8 @@ use \Plagiarism\Plagscan\Abstracts\AClient;
 
 class PlagiarismCheck extends AClient {
 
+	const MODE_0 = 0;
+
 	public function submit(string $filePath, string $token) {
 		$Response = $this->Client->post("documents?access_token=" . $token,
 			["multipart" => [
@@ -20,6 +22,18 @@ class PlagiarismCheck extends AClient {
 	public function check(int $docID, string $token) {
 		$Response = $this->Client->put("documents/" . $docID . "/check", [
 			"form_params" => ['access_token' => $token]]);
+
+		return $this->response($Response);
+	}
+
+	public function status(int $docID, string $token) {
+		$Response = $this->Client->get("documents/" . $docID . "/status?access_token=" . $token);
+		return $this->response($Response);
+	}
+
+	public function retrieve(int $docID, string $token) {
+		$Response = $this->Client->get("documents/" . $docID . "/retrieve", [
+			"query" => ['access_token' => $token, 'mode' => self::MODE_0]]);
 
 		return $this->response($Response);
 	}
