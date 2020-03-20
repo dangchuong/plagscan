@@ -10,7 +10,7 @@ abstract class AClient {
 
 	public function __construct() {
 		$this->Client = new Client([
-			"base_uri" => "https://api.plagscan.com/v3/",
+			"base_uri" => config('plagscan.api_url')/*"https://api.plagscan.com/v3/"*/,
 			"timeout" => 20.0,
 			"http_errors" => false
 		]);
