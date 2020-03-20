@@ -17,9 +17,9 @@ abstract class AClient {
 	}
 
 	public function response($Response) {
-		// if (!in_array($Response->getStatusCode(), [200, 201, 204])) {
-		// 	return json_decode($Response->getBody(), true)['error']['message'];
-		// }
-		return json_decode($Response->getBody(), true);
+		if (!in_array($Response->getStatusCode(), [200, 201, 204])) {
+			return ['error' => true, 'message' => json_decode($Response->getBody(), true)['error']['message']];
+		}
+		return ['error' => false, 'response' => json_decode($Response->getBody(), true)];
 	}
 }
