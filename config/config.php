@@ -6,5 +6,5 @@ return [
 		'client_id' => env('CLIENT_ID', '5'),
 		'client_secret' => env('CLIENT_SECRET', 'W9fUaSq2vjkXUPMmenlmp3Xqnc1xWPtN'),
 	],
-    'api_url' => env('API_URL');
+    'api_url' => env('API_URL')
 ];
