@@ -31,9 +31,9 @@ class PlagiarismCheck extends AClient {
 		return $this->response($Response);
 	}
 
-	public function retrieve(int $docID, string $token) {
+	public function retrieve(int $docID, string $token, int $mode = self::MODE_0) {
 		$Response = $this->Client->get("documents/" . $docID . "/retrieve", [
-			"query" => ['access_token' => $token, 'mode' => self::MODE_0]]);
+			"query" => ['access_token' => $token, 'mode' => $mode]]);
 
 		return $this->response($Response);
 	}
